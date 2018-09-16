@@ -4,8 +4,10 @@ Converting various common Matlab statistical and machine learning tools into Pyt
 # Contents
 
 0. Installation Prerequisites
-1.1 Generating Data Sets
-1.2 Reading Data From Outside
+1.1. Generating Data Sets
+1.2. Reading Data From Outside
+1.2.1. Reading Data From CSV File
+1.2.2. Reading Data From PostGres Database
 2. General Encoding & Preprocessing
 3. Two Types of Supervised Learning
 4. Regression Using Parametric Modeling
@@ -62,8 +64,8 @@ it's performing well, in a sense, hence the name, "supervised learning."
 of a prediction is measured usually by the square of a loss.
 2. Classification - such as binary classification, where an indicator seperates
 a space into two regions and classified the data points.  Performance of the
-prediction in the case of binary classification is usually measured as either, 
-"right or wrong," for any given point.  Loss is calulated as "actual" vs. 
+prediction in the case of binary classification is usually measured as either,
+"right or wrong," for any given point.  Loss is calulated as "actual" vs.
 predicted in this case - so it's all very application dependant.
 
 Loss functions should not be blindly adopted for all applications.
