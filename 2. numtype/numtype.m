@@ -13,9 +13,9 @@ x_double = double(x);
 x_single = single(x);
 x_int8 = int8(x);
 x_int16 = int16(x);	% 16-bit signed integer arrays
-int32	32-bit signed integer arrays
-int64	64-bit signed integer arrays
-uint8	8-bit unsigned integer arrays
-uint16	16-bit unsigned integer arrays
-uint32	32-bit unsigned integer arrays
-uint64	64-bit unsigned integer arrays
+x_int32 = int32(x);	% 32-bit signed integer arrays
+x_int64 = int64(x);	% 64-bit signed integer arrays
+x_int8 = uint8(x);	% 8-bit unsigned integer arrays
+x_int16 = uint16(x); % 16-bit unsigned integer arrays
+x_int32 = uint32(x); % 32-bit unsigned integer arrays
+x_int64 = uint64(x); % 64-bit unsigned integer arrays
