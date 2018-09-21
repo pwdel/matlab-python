@@ -1,6 +1,12 @@
 # matlab-python
 Converting various common Matlab statistical and machine learning tools into Python.
 
+# Motivation and Background
+
+## A Word on Matlab Python Translators
+
+https://github.com/awesomebytes/libermate
+
 # Contents
 
 0. Installation Prerequisites
@@ -19,11 +25,12 @@ Converting various common Matlab statistical and machine learning tools into Pyt
 
 ## Python
 
-Using Python 3.5
+* Using Python 3.5
 pip install numpy
 pip install matplotlib
 sudo ipython -m pip install mpld3 # install javascript display for matplotlib charts
-Used Jupyter Notebook
+
+* Used Jupyter Notebook
 
 ## Matlab
 
@@ -31,15 +38,13 @@ Using Matlab 2017
 
 ## Displaying Matplotlib
 
-# Data Sets
+# Data Sets - Generating, Displaying, Reading
 
 ## Generating Data Sets
 
 We can generated data sets to play around with using random number functions.
-
-## Reading Data From Outside Source
-
-
+What this allows us to do is quickly and easily generate dummy data for the purposes
+of doing statistical analysis or various data science exercises.
 
 # Data Encoding & Preprocessing
 It is important to recognize first that the two most common types of input
@@ -51,7 +56,19 @@ There is a third type known as an ordered categorical variable, which has
 order but not distance.
 
 Preprocessing includes scaling numerical data and ensuring that categorical
-variables are uniform.
+variables are uniform.  For numeric inputs and outputs, this may include simple
+statistical analysis in order to better understand the data - removing outliers
+for example.  It may also involve scaling, for example scaling all data into a
+range from 1 to 0.
+
+Some tools in this repo which are used in preprocessing may include:
+
+2. numtype - comparing various data types between the two languages
+3. matrixsize - sorting, shifting, and extracting pieces of a matrix
+
+
+## Reading Data From Outside Source
+
 
 # Two Types of Supervised Learning Tasks
 
