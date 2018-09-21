@@ -16,7 +16,8 @@ print Y
 # https://docs.scipy.org/doc/numpy/reference/generated/numpy.rot90.html
 A = np.matrix('1 2 3 4 5 6 7 8 9 10')
 print A
-B = rot90(A,3);
+B = np.rot90(A,k=3);
+print B
 
 
 % generate a magic matrix
