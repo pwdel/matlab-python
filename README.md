@@ -24,12 +24,16 @@ versions of Python, the most common of which are Python 2 and Python 3.
 Python 2 is being retired in 2020 permanently and will not be maintained.
 So it is recommended to upgrade and use Python 3.
 
-* You will need to understand how to use pip and/or pip3 (which is the Python 3 version).
-* You will need to understand how to use Homebrew.
+Requirements:
+* python3
+* pip3 (which is the Python 3 version).
+* Homebrew.
+* Anaconda & setup of Python environments
+* Jupyter notebook and use of proper environments
 
 # Contents
 
-0. Installation Prerequisites
+0. Installation of Prerequisites
 1.1. Generating Data Sets
 1.2. Reading Data From Outside
 1.2.1. Reading Data From CSV File
@@ -41,16 +45,17 @@ So it is recommended to upgrade and use Python 3.
 6. K-Nearest Neighbor Regression
 7. Piecewise Linear Regression
 
-# Installation Prerequisites
+# Installation of Prerequisites
 
 ## Python
 
-* Using Python 3.5
+* Using Python 3.6
+Setup Anaconda Environment for Python3
 pip install numpy
 pip install matplotlib
 sudo ipython -m pip install mpld3 # install javascript display for matplotlib charts
 
-* Used Jupyter Notebook
+* Use Jupyter Notebook with Python3 Anaconda Environment.
 
 ## Matlab
 
