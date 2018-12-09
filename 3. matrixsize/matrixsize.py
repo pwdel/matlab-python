@@ -47,18 +47,15 @@ def magic(n):
 A = magic(4)
 A
 
-# sort each column in ascending order, note column = 0 axis
+# sort each column in ascending order (bigger going down), note column = 0 axis
 # use https://docs.scipy.org/doc/numpy/reference/generated/numpy.sort.html
 B = np.sort(A, axis=0, kind='quicksort', order=None)
 B
 
-# sort each coulmn in descending order
+# sort each coulmn in descending order (smaller going down)
 # Note, the method A.sort sorts the current array where as np.sort(A) creates a new array
-# hence, the method A.sort is more computationally efficient, but we need a new array
-# in Matlab, the new array would be created and put into a new variable at ans
-# Efficient method C = A[::-1].sort()
-C = np.sort(A)[::-1]
-
+# hence, the method A.sort is more computationally efficient
+C = np.sort(A[::],axis=0)[::-1] # we sort on axis 0, then reverse the sort order on all columns
 
 # https://www.mathworks.com/help/matlab/ref/sortrows.html?s_tid=doc_ta
 # sort entire rows together
