@@ -63,8 +63,8 @@ D = A[I,:] # sort the whole matrix according to the index from the sort above
 
 # Extract a range
 # sort a range - first extract the range from the matrix, sort the sub-range
-% put the range back into the matrix
-Nkeep = 3; % size to keep
-E = A(2:Nkeep,2:Nkeep) % from 2,2 out to size of matrix 3,3
-E = sort(E) % sort each row
-A(2:Nkeep,2:Nkeep) = E; % place back into matrix at exact location
+# put the range back into the matrix
+Nkeep = 3; # size to keep
+E = A[0:Nkeep,0:Nkeep] # extract 0:Nkeep range from A
+En = np.sort(E, axis=1, kind='quicksort', order=None) # sort each row
+A[0:Nkeep,0:Nkeep] = En # put micromatrix back into A
