@@ -3,7 +3,32 @@ Converting various common Matlab statistical and machine learning tools into Pyt
 
 # Motivation and Background
 
+This repo is created for those who are familiar with a Matlab background, but have an interest
+in being able to do some of the same types of statistical computing and machine learning in Python.
+
+My personal motivation from this project comes from the fact that I studied electrical engineering,
+which involved the use of Matlab.  As computing has inevitably become more powerful over the years,
+the use of terms such as, "Machine Learning," and "Artificial Intelligence," has become democratized.
+Yet fundamentally, all these terms really amount to is the ability to do math at volume.
+
+The, "at volume" side of that statement has to do with the capability to deploy software onto a server.
+
+Matlab was never really geared for being able be re-deployable, it's an academic, highly-maintained
+statistical computing software from the 80s, designed with the PC era in mind.  It's designed for the
+speed of the individual data scientist to be able to move quickly, without getting in the way.
+However, it does not allow for deployment and reproducibility, because you have to buy a license
+for each distribution.  This is in contrast to Python and open source data science tools, which while
+clunkier in terms of setup and lack of tools, can be infinitely used without the need for licensing.
+
+Some of the best, most interesting mathematical practitioners out there are trained in and fluent in
+Matlab, but are not familiar with Python and its various tools.
+
+It is my help that individuals may be able to use this repo as a guide to translate from MATLAB
+to Python and assist their careers and work.
+
 ## A Word on Matlab Python Translators
+
+Some Matlab-Python translators exist, here are some of those which I have been able to find below.
 
 1. https://github.com/victorlei/smop
     Appears to be continuously updated, high reputation score at 380+ stars.
@@ -11,10 +36,32 @@ Converting various common Matlab statistical and machine learning tools into Pyt
 3. https://github.com/miaoever/Mat2py
 4. https://github.com/buguen/mat2py
 
+Translators are well and good, however my thought is that a fundamental understanding
+of the underlying computing and why certain technical decisions are made is superior to simply
+plugging things into a translator.  That being said, the above resources are provided
+depending upon your use case.
+
 ## Assumptions on Machine Used & Tool Prerequisites
 
 I used a Macbook Air 2015 for all of this, running OSX.  There may be some slight
 variations in tools and techniques used if you are on a different operating system.
+
+### Quick Note on Python and Containers
+
+This is important if you're going to build an app based upon the code that you're using,
+since much of webapps are built based upon linux distributions.  If you're not familiar,
+I recommend you check out [containers](https://www.docker.com/resources/what-container)
+for deploying and distributing to systems other than personal computers and laptops,
+which may be the level of familiarity that many working within the Matlab environment may start off with.
+
+In short, MATLAB is essentially a complete package with a bunch of libraries and ways
+of accessing data installed.
+
+Moving to python means you are working, "completely from scratch" and importing a bunch
+of tools which give you Matlab functionality.  To ensure that this works across mupltiple
+systems, you use containers to ensure consistency.
+
+## Command Line Familiarity
 
 All of the commands and ssh work mentioned were done using the command line (terminal).
 You will need a basic familiarity with using a machine command terminal for the following.
@@ -22,14 +69,26 @@ You will need a basic familiarity with using a machine command terminal for the 
 If you're not familiar with Python, you should know that there are various
 versions of Python, the most common of which are Python 2 and Python 3.
 Python 2 is being retired in 2020 permanently and will not be maintained.
-So it is recommended to upgrade and use Python 3.
+So it is recommended to upgrade and use Python 3 and do not use Python 2 at all.
+
+## Installation Requirements
 
 Requirements:
 * python3
 * pip3 (which is the Python 3 version).
 * Homebrew.
 * Anaconda & setup of Python environments
-* Jupyter notebook and use of proper environments
+* Jupyter notebook and use of proper environments - particularly the python3 environment.
+
+## Installation of libraries
+
+You must install the following from ssh using the following commands:
+
+* Python3 [documentation](https://docs.python.org/3/)
+* Numpy [documentation](https://docs.scipy.org/doc/)
+pip3 install numpy
+* Pandas [documentation](https://pandas.pydata.org/pandas-docs/stable/)
+pip3 install pandas
 
 # Contents
 
@@ -71,7 +130,7 @@ We can generated data sets to play around with using random number functions.
 What this allows us to do is quickly and easily generate dummy data for the purposes
 of doing statistical analysis or various data science exercises.
 
-## Reading Data from Local Database
+## Reading Data from Local Databases
 
 ### Reading Data From a CSV File
 
@@ -79,6 +138,8 @@ Reading from a CSV File is a simple, well-known way of grabbing data for analysi
 purposes within the Matlab world.  Examples on how to do this are shown in:
 
 1.2.1 readcsv
+
+This file allows you to read a csv file of arbitrary length
 
 ### Reading Data From a PostGres Database
 

@@ -32,4 +32,6 @@ E = sort(E) % sort each row
 A(2:Nkeep,2:Nkeep) = E; % place back into matrix at exact location
 
 % Sort entire Matrix by first column (or particular column)
-F = 1;
+Fc1 = A(:,1) % extract the first column
+[Fc,I] = sort(Fc1) % sort first column, I is the indicies
+F = A(I,:) % sort the whole matrix according to the index from the sort above

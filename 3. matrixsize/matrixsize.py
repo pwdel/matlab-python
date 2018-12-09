@@ -53,16 +53,25 @@ B = np.sort(A, axis=0, kind='quicksort', order=None)
 B
 
 # sort each coulmn in descending order
-C = np.sort(A, axis=0, kind='quicksort', order=None)
-C
+# Note, the method A.sort sorts the current array where as np.sort(A) creates a new array
+# hence, the method A.sort is more computationally efficient, but we need a new array
+# in Matlab, the new array would be created and put into a new variable at ans
+# Efficient method C = A[::-1].sort()
+C = np.sort(A)[::-1]
 
-% https://www.mathworks.com/help/matlab/ref/sortrows.html?s_tid=doc_ta
-% sort entire rows together
+
+# https://www.mathworks.com/help/matlab/ref/sortrows.html?s_tid=doc_ta
+# sort entire rows together
 D = sortrows(A)
 
-% sort a range - first extract the range from the matrix, sort the sub-range
+# sort a range - first extract the range from the matrix, sort the sub-range
 % put the range back into the matrix
 Nkeep = 3; % size to keep
 E = A(2:Nkeep,2:Nkeep) % from 2,2 out to size of matrix 3,3
 E = sort(E) % sort each row
 A(2:Nkeep,2:Nkeep) = E; % place back into matrix at exact location
+
+# Sort entire Matrix by first column (or particular column)
+Fc1 = A(:,1) % extract the first column
+[Fc,I] = sort(Fc1) % sort first column, I is the indicies
+F = A(I,:) % sort the whole matrix according to the index from the sort above
