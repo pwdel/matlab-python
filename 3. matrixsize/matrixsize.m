@@ -18,7 +18,7 @@ A = magic(4)
 B = sort(A)
 
 % sort each coulmn in descending order
-C = sort(A,2,'descend')
+C = sort(A,1,'descend')
 
 % https://www.mathworks.com/help/matlab/ref/sortrows.html?s_tid=doc_ta
 % sort entire rows together
@@ -31,3 +31,5 @@ E = A(2:Nkeep,2:Nkeep) % from 2,2 out to size of matrix 3,3
 E = sort(E) % sort each row
 A(2:Nkeep,2:Nkeep) = E; % place back into matrix at exact location
 
+% Sort entire Matrix by first column (or particular column)
+F = 1;

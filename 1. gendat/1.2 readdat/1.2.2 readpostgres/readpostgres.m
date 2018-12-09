@@ -7,6 +7,7 @@
 % https://www.mathworks.com/help/database/ug/database.html
 
 % Get the datasource, username, password and put it into the conn object
+% 
 
 datasource = 'sample_table';
 username = '';

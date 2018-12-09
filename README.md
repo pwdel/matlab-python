@@ -177,7 +177,7 @@ predicted in this case - so it's all very application dependant.
 
 Loss functions should not be blindly adopted for all applications.
 
-# Regression Uing Parametric Modeling
+# Regression Using Parametric Modeling
 
 # Regression Using Parametric Modeling
 # Classification Using Parametric Modeling
