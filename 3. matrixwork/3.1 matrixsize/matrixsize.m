@@ -35,3 +35,5 @@ A(2:Nkeep,2:Nkeep) = E; % place back into matrix at exact location
 Fc1 = A(:,1) % extract the first column
 [Fc,I] = sort(Fc1) % sort first column, I is the indicies
 F = A(I,:) % sort the whole matrix according to the index from the sort above
+
+% Dynamicly Grow a Matrix as Data is Generated or Read

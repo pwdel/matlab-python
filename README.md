@@ -41,6 +41,23 @@ of the underlying computing and why certain technical decisions are made is supe
 plugging things into a translator.  That being said, the above resources are provided
 depending upon your use case.
 
+### Matlab and "Big Data"
+
+"Big Data" is a fairly innocuous term, but generally it may be reasonable to define it as meaning
+"files that do not fit into available memory."  One potential criticism of Matlab is that it does
+not have the capability to expand beyond a single computer, and hence is not suitable for Big Data.
+Of course, Matlab is actually an ecosystem and is constantly be developed by the Mathworks company.
+
+* [Matlab Large Files and Big Data Tools](https://www.mathworks.com/help/matlab/large-files-and-big-data.html)
+
+* [Working with Big Data in Matlab](https://www.mathworks.com/solutions/big-data-matlab.html)
+
+In short, there are a wide variety of data types and storage systems that Matlab can handle.  This
+guide is not meant to supplant Matlab, but rather to create understanding of the differences between
+the two languages and available toolsets/libraries.
+
+Some people may find Matlab useful, some people may find Python useful, for different types of projects.
+
 ## Assumptions on Machine Used & Tool Prerequisites
 
 I used a Macbook Air 2015 for all of this, running OSX.  There may be some slight
@@ -71,10 +88,53 @@ versions of Python, the most common of which are Python 2 and Python 3.
 Python 2 is being retired in 2020 permanently and will not be maintained.
 So it is recommended to upgrade and use Python 3 and do not use Python 2 at all.
 
+## How I Put This Guide together
+
+Basically, I have a high familiarity with Matlab for having worked with it for years,
+having done a wide variety of data science projects over time including image processing.
+Typically I would learn about Matlab, and indeed new forms of mathematics that I had not heard
+about by reading the Matlab documentation and user forums on Mathworks.
+
+and having taken a class during undergraduate back in 2006 taught by Vladimir Cherkassky
+
+I compiled some of the thoughts from the book:
+
+Then, I researched various machine learning tools embedded within Python by reading various
+"top data science toolkits for python" articles such as [this one](https://medium.com/activewizards-machine-learning-company/top-20-python-libraries-for-data-science-in-2018-2ae7d1db8049).
+
+I also got recommendations for toolkits to look into from various friends who work in data science, including [Mike Semeniuk](https://twitter.com/mikhailsemeniuk)
+
 ## Installation Requirements
 
 Requirements:
+
 * python3
+
+* Numpy
+  Numpy is a library within Python that allows for the matrix-style manipulation of numbers inherent in Matlab.
+
+* SciPy
+  Scipy is a library within Python that allows various types of linear algebra, as well as compiling into C++.
+
+* Scikit-Learn
+
+
+* Pandas
+  Pandas or Python ANalysis of DAta library allows some of the tabular data structure functionality of Matlab.
+
+* Matplotlib
+  Matplotlib is basically a plotting library within Python, allows you to do graphs.
+
+* PostGresql
+  PostGreSQL is a simple, widely known dynamic database.
+  [PostGreSQL Installation Documentation](https://www.postgresql.org/docs/10/tutorial-install.html)
+
+* MySQL
+  MySQL is a widely known dynamic database.
+  [Guide to Install MySQL with Hombrew](https://gist.github.com/nrollr/3f57fc15ded7dddddcc4e82fe137b58e)
+  [Download Community Version](https://dev.mysql.com/downloads/mysql/)
+
+
 * pip3 (which is the Python 3 version).
 * Homebrew.
 * Anaconda & setup of Python environments
@@ -93,16 +153,24 @@ pip3 install pandas
 # Contents
 
 0. Installation of Prerequisites
+1.   Generating and Reading Data
 1.1. Generating Data Sets
 1.2. Reading Data From Outside
 1.2.1. Reading Data From CSV File
 1.2.2. Reading Data From PostGres Database
-2. General Encoding & Preprocessing
-3. Two Types of Supervised Learning
-4. Regression Using Parametric Modeling
-5. Classification Using Parametric Modeling
-6. K-Nearest Neighbor Regression
-7. Piecewise Linear Regression
+1.2.3  Reading Data from MySQL Database
+2. Number Types
+2.X Datetimes - Python datetime
+2.X
+3. Matrix Manipulation
+4. Object Oriented Matlab and Python
+5. Performance Considerations
+5.X Preallocating Arrays
+X. Two Types of Supervised Learning
+X. Regression Using Parametric Modeling
+X. Classification Using Parametric Modeling
+X. K-Nearest Neighbor Regression
+X. Piecewise Linear Regression
 
 # Installation of Prerequisites
 
@@ -184,6 +252,8 @@ https://alliedtesting.github.io/pgmex-blog/2017/06/29/performance-comparison-of-
 sqlwrite
 https://www.mathworks.com/help/database/ug/database.odbc.connection.sqlwrite.html
 
+In order to use this database, you have to buy the Matlab database package.  We're not going to
+go through how to use this here.
 
 ##### Python Version of "readpostgres"
 
@@ -218,7 +288,7 @@ Some tools in this repo which are used in preprocessing may include:
 3. matrixsize - sorting, shifting, and extracting pieces of a matrix
 
 
-## Reading Data From Outside Source
+## Reading Data From Outside Sources
 
 
 # Two Types of Supervised Learning Tasks
@@ -240,7 +310,7 @@ Loss functions should not be blindly adopted for all applications.
 
 # Regression Using Parametric Modeling
 
-# Regression Using Parametric Modeling
+
 # Classification Using Parametric Modeling
 # K-Nearest Neighbor Regression
 # Piecewise Linear Regression

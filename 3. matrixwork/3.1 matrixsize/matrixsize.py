@@ -67,4 +67,7 @@ D = A[I,:] # sort the whole matrix according to the index from the sort above
 Nkeep = 3; # size to keep
 E = A[0:Nkeep,0:Nkeep] # extract 0:Nkeep range from A
 En = np.sort(E, axis=1, kind='quicksort', order=None) # sort each row
-A[0:Nkeep,0:Nkeep] = En # put micromatrix back into A
+A[0:Nkeep,0:Nkeep] = En # put micromatrix back into
+
+# Dynamicly Grow a Matrix as Data is Generated or Read
+# .append method
