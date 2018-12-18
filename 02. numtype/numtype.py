@@ -42,3 +42,10 @@ Xint8 = np.int8(X)
 whosMy(X,Xfloat64,Xfloat32,Xint8)
 
 # and so on according to the documentation.
+
+# Other notes about numpy
+# Numpy Coerces types
+# Python falls back to unlimited integer representations
+
+# About Time Series Data
+# https://jakevdp.github.io/PythonDataScienceHandbook/03.11-working-with-time-series.html
