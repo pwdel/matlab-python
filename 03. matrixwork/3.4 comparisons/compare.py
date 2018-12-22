@@ -1,3 +1,4 @@
+# Within python we have lists, and we can compare lists to each other with set operations
 a = [1, 2, 3, 5, 0]
 b = [9, 8, 7, 6, 5]
 
