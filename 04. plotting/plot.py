@@ -1,29 +1,50 @@
+# Read Data from a CSV File and Create Scatter Plot
+
 import matplotlib
 import matplotlib.pyplot as plt
+import csv
 
 # https://matplotlib.org/users/annotations_intro.html
 
-fig, ax = plt.subplots(nrows=2,ncols=1,sharex=True)
+filename = 'test.csv'
+# Go to first column and extract value into list, skipping first row
+with open(filename, mode='r') as csvFile:
+    readCSV = csv.reader(csvFile, delimiter=',')
+    next(readCSV) # skip the first row (header) using next function
+    x = []
+    y = []
+    for row in readCSV: # note, the list[1:] means first through rest of items
+        x.append(row[0]) # grab the 0th element in the current row, put into x
+        y.append(row[1]) # grab the 1st element in the current row, put into y
+
+
+# Use List Comprehension To Turn Strings into float64 (double precision)
+xflt = [ float(i) for i in x ]
+yflt = [ float(i) for i in y ]
+
+# Set up a figure with multiple spaces as subplots (1, 1) spaces
+fig, ax = plt.subplots(nrows=1,ncols=1,sharex=True)
 
 # set the overall title
-ax[0].set_title('Temperature Over Time in House - Clipped Off >100dF & <30dF')
+ax.set_title('X vs Y')
 
 # plot out on the top chart ax0
-ax[0].plot(validtimeroom0, validtemproom0, label='Upstairs Bedroom')
-ax[0].plot(validtimeroom1, validtemproom1, label='First Floor')
-# plot out on the bottom chart ax1
-ax[1].plot(validtimeroom3, validtemproom3,'g',label='Attic')
-ax[1].plot(validtimeroom6, validtemproom6,'r',label='Basement')
+ax.scatter(xflt, yflt, label='X vs Y')
 
 # automatically get handle labels
-h1, l1 = ax[0].get_legend_handles_labels()
-h2, l2 = ax[1].get_legend_handles_labels()
+h1, l1 = ax.get_legend_handles_labels()
+
 # place legends on chart
-ax[0].legend(h1, l1)
-ax[1].legend(h2, l2)
+ax.legend(h1, l1)
 
 # Set common labels with absolute positioning on chart
-fig.text(0.5, 0.05, 'linux time', ha='center', va='center')
-fig.text(0.05, 0.5, 'degrees F', ha='center', va='center', rotation='vertical')
+fig.text(0.5, 0.05, 'X Axis', ha='center', va='center')
+fig.text(0.05, 0.5, 'Y Axis', ha='center', va='center', rotation='vertical')
 
 plt.show()
+
+
+"""
+We can also use Pandas to do plotting within its own module.  For more information about Pandas,
+see the section on datatypes.
+"""

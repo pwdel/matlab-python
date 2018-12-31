@@ -155,13 +155,34 @@ pip3 install pandas
 0. Installation of Prerequisites
 1.   Generating and Reading Data
 1.1. Generating Data Sets
+1.1.1.
+* Generate Random Numbers, Display Graph in HTML Format (Python)
+* Generate Random Numbers, Show on Chart (Python)
+* Generate Random Numbers, Show on Chart (Matlab)
+
+1.1.2
+* Write to CSV File (Python)
+
 1.2. Reading Data From Outside
 1.2.1. Reading Data From CSV File
+* Read CSV then Plot on Scatter Plot (Python)
+* Read CSV then Plot on Scatter Plot (Matlab)
+
 1.2.2. Reading Data From PostGres Database
-1.2.3  Reading Data from MySQL Database
+* Read from PostGreSQL Database (Python)
+* Not Done Yet
+
+1.2.3. Reading Json Objects
+* Read Json Object, Query (Python)
+
 2. Number Types
-2.X Datetimes - Python datetime
-2.X
+2.1 Numtypes
+* Lists of functions to convert number types (Matlab)
+* Lists of functions to convert number types using Numpy (Python)
+2.2 Datatypes
+* Characters and Strings, Datetime, Tables, Structures, Cell Arrays (Matlab)
+* Sets (Python)
+
 3. Matrix Manipulation
 4. Object Oriented Matlab and Python
 5. Performance Considerations
