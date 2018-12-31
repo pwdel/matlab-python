@@ -42,3 +42,9 @@ fig.text(0.5, 0.05, 'X Axis', ha='center', va='center')
 fig.text(0.05, 0.5, 'Y Axis', ha='center', va='center', rotation='vertical')
 
 plt.show()
+
+
+"""
+We can also use Pandas to do plotting within its own module.  For more information about Pandas,
+see the section on datatypes.
+"""
