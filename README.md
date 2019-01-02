@@ -41,6 +41,19 @@ of the underlying computing and why certain technical decisions are made is supe
 plugging things into a translator.  That being said, the above resources are provided
 depending upon your use case.
 
+
+### The Matrix Cheatsheet by Sebastian Raschka & Other Translation Guides
+
+https://sebastianraschka.com/blog/2014/matrix_cheatsheet_table.html
+
+http://mathesaurus.sourceforge.net/matlab-numpy.html
+
+### Past Discussions on This Topic
+
+https://www.reddit.com/r/MachineLearning/comments/5x9tyi/r_which_libraries_to_learn_to_get_started_with_ml/
+https://www.reddit.com/r/MachineLearning/comments/6h75h2/d_random_question_why_has_matlaboctave_not_been/
+
+
 ### Matlab and "Big Data"
 
 "Big Data" is a fairly innocuous term, but generally it may be reasonable to define it as meaning
