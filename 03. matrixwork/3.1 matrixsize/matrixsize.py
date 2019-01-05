@@ -4,6 +4,18 @@ import numpy as np
 # create np.matrix
 # https://docs.scipy.org/doc/numpy/reference/generated/numpy.matrix.html
 
+# Create matrix
+# Note - in Matlab it was Am = [1 2 3; 4 5 6; 7 8 9]
+# Here in python we use individual lists for each row.
+Am = np.array([ [1,2,3], [4,5,6], [7,8,9] ])
+
+# Creating column vector
+Ac = np.array([1,2,3]).reshape(3,1)
+
+# Creating a row vector
+Ar = np.array([1,2,3]).reshape(1, 3)
+
+
 # circularly shift everything by a certain number of spaces clockwise
 X = np.matrix('1 2 3 4; 5 6 7 8; 9 10 11 12')
 print X
