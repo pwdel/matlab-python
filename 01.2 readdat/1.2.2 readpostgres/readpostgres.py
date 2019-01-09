@@ -8,6 +8,6 @@
 
 import psycopg2
 try:
-conn = psycopg2.connect("host=localhost dbname=postgres user=postgres")
+    conn = psycopg2.connect("host=localhost dbname=name user=user")
 except:
-    print "I am unable to connect to the postgres database"
+    print("I am unable to connect to the postgres database")
