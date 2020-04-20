@@ -1,7 +1,6 @@
 # matlab-python
 Converting various common Matlab statistical and machine learning tools into Python.
 
-- [matlab-python](#matlab-python)
 - [Motivation and Background](#motivation-and-background)
   * [Personal Motivation](#personal-motivation)
   * [Origin and History of MATLAB vs. New Paradigm](#origin-and-history-of-matlab-vs-new-paradigm)
@@ -9,14 +8,14 @@ Converting various common Matlab statistical and machine learning tools into Pyt
     + [Disadvantages of MATLAB](#disadvantages-of-matlab)
   * [A Word on Matlab Python Translators](#a-word-on-matlab-python-translators)
     + [Additional Resources](#additional-resources)
-      - [The Matrix Cheatsheet by Sebastian Raschka & Other Translation Guides](#the-matrix-cheatsheet-by-sebastian-raschka---other-translation-guides)
+      - [The Matrix Cheatsheet by Sebastian Raschka & Other Translation Guides](#the-matrix-cheatsheet-by-sebastian-raschka-other-translation-guides)
       - [Past Discussions on This Topic](#past-discussions-on-this-topic)
-    + [Matlab and "Big Data"](#matlab-and--big-data-)
-  * [Assumptions on Machine Used & Tool Prerequisites](#assumptions-on-machine-used---tool-prerequisites)
+    + [Matlab and "Big Data"](#matlab-and-big-data-)
+  * [Assumptions on Machine Used & Tool Prerequisites](#assumptions-on-machine-used-tool-prerequisites)
     + [Quick Note on Python and Containers](#quick-note-on-python-and-containers)
     + [Quote Note on Python and Online Notebooks](#quote-note-on-python-and-online-notebooks)
   * [Command Line Familiarity](#command-line-familiarity)
-  * [Versioning (Old Notice)](#versioning--old-notice-)
+  * [Versioning (Old Notice)](#versioning-old-notice-)
   * [How I Put This Guide together](#how-i-put-this-guide-together)
   * [Installation Requirements to Run on Local server](#installation-requirements-to-run-on-local-server)
   * [Installation of libraries](#installation-of-libraries)
@@ -24,23 +23,53 @@ Converting various common Matlab statistical and machine learning tools into Pyt
   * [Python](#python)
   * [Matlab](#matlab)
   * [Displaying Matplotlib](#displaying-matplotlib)
-- [Data Sets - Generating, Displaying, Reading](#data-sets---generating--displaying--reading)
+- [Data Sets - Generating, Displaying, Reading](#data-sets-generating-displaying-reading)
   * [Generating Data Sets](#generating-data-sets)
   * [Reading Data from Local Databases](#reading-data-from-local-databases)
     + [Reading Data From a CSV File](#reading-data-from-a-csv-file)
     + [Reading Data From a PostGres Database](#reading-data-from-a-postgres-database)
       - [Postgresql on Local Machine](#postgresql-on-local-machine)
-        * [Matlab Version of "readpostgres"](#matlab-version-of--readpostgres-)
-        * [Python Version of "readpostgres"](#python-version-of--readpostgres-)
-- [Data Encoding & Preprocessing](#data-encoding---preprocessing)
-  * [Reading Data From Outside Sources](#reading-data-from-outside-sources)
+        * [Matlab Version of "readpostgres"](#matlab-version-of-readpostgres-)
+        * [Python Version of "readpostgres"](#python-version-of-readpostgres-)
+- [Data Encoding & Preprocessing](#data-encoding-preprocessing)
+  * [Tools Used In Preprocessing](#tools-used-in-preprocessing)
+    + [01.1 Generating Data, Declaring variables](#011-generating-data-declaring-variables)
+      - [Generating data in the form of random numbers to play around with, putting them into variables.](#generating-data-in-the-form-of-random-numbers-to-play-around-with-putting-them-into-variables)
+    + [01.2 Reading Data](#012-reading-data)
+      - [Reading data from files such as a CSV file](#reading-data-from-files-such-as-a-csv-file)
+    + [02 Numeric Types](#02-numeric-types)
+      - [Comparing numeric types whether integers, doubles, etc.  These types are best described in the Numpy documentation.](#comparing-numeric-types-whether-integers-doubles-etc-these-types-are-best-described-in-the-numpy-documentation)
+    + [03 Matrix Work](#03-matrix-work)
+      - [Python does not really have, "Matricies" as defined in MATLAB (which actually stands for Matrix-Lab). Discussion on some analogs.](#python-does-not-really-have-matricies-as-defined-in-matlab-which-actually-stands-for-matrix-lab-discussion-on-some-analogs)
+        * [Using Numpy](#using-numpy)
+        * [Using Pandas](#using-pandas)
+    + [04 Plotting](#04-plotting)
+    + [05 Performance](#05-performance)
+    + [06 Functions](#06-functions)
+    + [07 Classes](#07-classes)
+    + [08 Tables](#08-tables)
+    + [09 Cells](#09-cells)
+    + [10 Control Statements](#10-control-statements)
+      - [10.1 If Else Statements](#101-if-else-statements)
+      - [10.2 Loops](#102-loops)
+    + [11 Set Operations](#11-set-operations)
+    + [12 Casting](#12-casting)
+    + [13 Strings](#13-strings)
+    + [14 Operators](#14-operators)
+    + [15 Functions](#15-functions)
+    + [16 Lambda](#16-lambda)
+    + [17 Inheritance](#17-inheritance)
+    + [18 Scope](#18-scope)
+    + [19 Modules](#19-modules)
+    + [20 Dates](#20-dates)
+    + [30 Containers](#30-containers)
+    + [31 Machine Learning Intro](#31-machine-learning-intro)
 - [Two Types of Supervised Learning Tasks](#two-types-of-supervised-learning-tasks)
+    + [32 Basic Stats](#32-basic-stats)
 - [Regression Using Parametric Modeling](#regression-using-parametric-modeling)
 - [Classification Using Parametric Modeling](#classification-using-parametric-modeling)
 - [K-Nearest Neighbor Regression](#k-nearest-neighbor-regression)
 - [Piecewise Linear Regression](#piecewise-linear-regression)
-
-
 
 # Motivation and Background
 
@@ -305,28 +334,94 @@ To install the Python3 version, use:
 $ pip3 install psycopg2
 
 # Data Encoding & Preprocessing
-It is important to recognize first that the two most common types of input
-and output values: numeric (such as speed, mass, volume) or categorical.
 
-Categorical variables are not ordered nor defined by distance.
+Within Machine Learning, a lot of the, "basic computational stuff" that one learns in a beginner computer science class - meaning the control statements such as, "if, statements, for loops, while loops, etc." - as well as data types, functions, types of arrays, classes, - the bread and butter which might normally be defined as, "software programming" - might be referred to by a Machine Learning enthusiast as, "Data Encoding and Preprocessing."
 
-There is a third type known as an ordered categorical variable, which has
-order but not distance.
+To a Machine Learning practitioner, they may define input and output values in a couple different ways:
 
-Preprocessing includes scaling numerical data and ensuring that categorical
-variables are uniform.  For numeric inputs and outputs, this may include simple
-statistical analysis in order to better understand the data - removing outliers
-for example.  It may also involve scaling, for example scaling all data into a
-range from 1 to 0.
+* Numeric variables which have a value such as speed, mass, volume or...
+* Categorical variables which are not ordered nor defined by distance such as A, B, Left, Right, Orange, Blue, Nice, Mean.
+* There is a third type known as an ordered categorical variable, which has order but not distance, such as A1, A2, A3 or Fast, Medium, Slow.
 
-Some tools in this repo which are used in preprocessing may include:
+Preprocessing includes scaling numerical data and ensuring that categorical variables are uniform.  For numeric inputs and outputs, this may include simple statistical analysis in order to better understand the data - removing outliers for example.  It may also involve scaling, for example scaling all data into a range from 1 to 0.
 
-2. numtype - comparing various data types between the two languages
-3. matrixsize - sorting, shifting, and extracting pieces of a matrix
+## Tools Used In Preprocessing
 
+Preprocessing Tools are organized by folders in this Repo.  We are basically just going straight down the line in terms of letting individuals know what types of tools are available and what the analog between Python and MATLAB are.
 
-## Reading Data From Outside Sources
+### 01.1 Generating Data, Declaring variables
 
+#### Generating data in the form of random numbers to play around with, putting them into variables.
+
+### 01.2 Reading Data
+
+#### Reading data from files such as a CSV file
+
+### 02 Numeric Types
+
+#### Comparing numeric types whether integers, doubles, etc.  These types are best described in the Numpy documentation.
+
+### 03 Matrix Work
+
+#### Python does not really have, "Matricies" as defined in MATLAB (which actually stands for Matrix-Lab). Discussion on some analogs.
+
+##### Using Numpy
+
+We wrote some examples using Numpy.  Numpy is good for arrays and creating what are known as, "numbered array."  While Matlab arrays are immediately understood to be numerical arrays, an, "Array" within python is more like a regular "computer programming" array that contains a bunch of values, but it's not necessarily optimized or set up well for doing math.  That's what the plugin, "Numpy" is for.  Numpy includes what are known as, "numbered arrays" or "ndarray" - which have easily accessible values and all sorts of other features much more similar to how Matlab functions.
+
+##### Using Pandas
+
+Pandas is a seperate plugin, which works in conjunction with Numpy, but allows one to much more easily work with the whole, "Matrix" concept.  Conceptually, Pandas is more like a set of Worksbook Spreadsheets, with cells that cannot be merged - so a bit more like Structs in Matlab.
+
+This seems to be, at the time of writing, the crux between the difference between Matlab and Python - while Python or Python/Pandas is not immediately set up with the assumption that you are immediately going to do math, it does give the ability to work with what in Matlab would be known as Structs or Cells.
+
+Within Matlab, a Matrix must be homogenous in terms of the type of data within it - which hypothetically could reduce errors.  In Python, you may need to write tests to ensure that the data you are using across different values is consistent.  Matlab will allow you to immediately test A*B and tell you whether it will work and if not why not from a numerical type standpoint.  Python may have a bunch of other errors that you may have to read through and deal with.
+
+Structs and Cells take a bit more coding and thinking to work with, but not a whole lot - and they give more flexibility with the capability to use dot notation to apply functions to them.  While Matricies in Matlab are super easy to just get going with, leaving, "less in the way" between the user and Math, there are
+
+* Matrix Sizing
+
+### 04 Plotting
+
+### 05 Performance
+
+### 06 Functions
+
+### 07 Classes
+
+### 08 Tables
+
+### 09 Cells
+
+### 10 Control Statements
+
+#### 10.1 If Else Statements
+
+#### 10.2 Loops
+
+### 11 Set Operations
+
+### 12 Casting
+
+### 13 Strings
+
+### 14 Operators
+
+### 15 Functions
+
+### 16 Lambda
+
+### 17 Inheritance
+
+### 18 Scope
+
+### 19 Modules
+
+### 20 Dates
+
+### 30 Containers
+
+### 31 Machine Learning Intro
 
 # Two Types of Supervised Learning Tasks
 
@@ -344,6 +439,8 @@ prediction in the case of binary classification is usually measured as either,
 predicted in this case - so it's all very application dependant.
 
 Loss functions should not be blindly adopted for all applications.
+
+### 32 Basic Stats
 
 # Regression Using Parametric Modeling
 
