@@ -1,6 +1,11 @@
 % Matrix sizing and rotation in Matlab
 % https://www.mathworks.com/help/matlab/math/reshaping-and-rearranging-arrays.html
 
+% creating a matrix
+
+Am = [1 2 3; 4 5 6; 7 8 9]
+
+
 % shifting and rotating
 
 % circularly shift everything by a certain number of spaces clockwise
