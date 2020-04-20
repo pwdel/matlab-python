@@ -90,9 +90,11 @@ xspace = linspace(-2,8,100);
 % Sum of Series - https://www.mathworks.com/help/symbolic/symsum.html
 midpoint = (mu0(:) + mu1(:)).'/2;
 
+
+
 % Using variable X below...
-A = (1/2)*(X-mu0)*inv(sigma0)*transpose(X-mu0); % We could transpose(xvect-mu0) here if needed
-= (1/2)X-(1/2)*mu0
+% A = (1/2)*(X-mu0)*inv(sigma0)*transpose(X-mu0); % We could transpose(xvect-mu0) here if needed
+% = (1/2)X-(1/2)*mu0
 
 % Second Factor of Equation
 % B = 
@@ -124,7 +126,7 @@ hold on
 plot(xspace,g1)
 
 % Using our derivation
-g2 = (
+% g2 = (
 
 
 % This is marketdly different than using the Matlab function, "classify" in 
