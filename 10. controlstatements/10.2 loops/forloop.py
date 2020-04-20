@@ -1,21 +1,54 @@
+import numpy as np
+import pandas as pd
 # Note - when working with for loops, it's always important to remember that
 # vectorizing data and operating on it is a much more computationally efficient way.
 # check out the section 3.2 on, "Vectorization"
 
-import pandas as pd
-from pandas import *
+# For Loops with Python as a Programming Language:
+# It's important to keep in mind that MATLAB is a mathematical language, while Python is designed primarily for programming overall.
+# Hence, the most basic type of for loop involves just iterating through something like a string, not a Matrix.
 
-# we put data.csv into the dataframe, dataframe is similar to a Matlab cell or struct
-df = read_csv('data.csv')
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  print(x)
 
-# one way to iterate through the data is to use enumerate
+# What we did above is basically create a regular python array (not a numbered array) and printed the values in that array
+# However if we wanted to iterate through a ndarray (numbered array), analogous to a matrix, we would do the following:
+
+# np.arrange creates an array([0,1,2,3,4,5]) and .reshape(2,3) turns it into a 2x3 matrix
+# the type of this variable will be numpy.ndarray
+a = np.arange(6).reshape(2,3)
+
+# then, we can use np.nditer to iterate through the numbered array
+for x in np.nditer(a):
+    print(x, end=' ')
+
+# For Loops with Pandas - Note that we imported Pandas above.
+
+# we put a from above into the dataframe, dataframe is similar to a Matlab cell or struct
+# Note that we can name the columns and rows
+df = pd.DataFrame(a, index=["row1","row2"], columns=["col1","col2","col3"])
+
+# one way to iterate through the data labels themselves is with enumerate
+print("iterating through rows")
 for i, row in enumerate(df.values):
-    date = df.index[i]
-    open, high, low, close, adjclose = row
+    rows = print(df.index[i])
     #now perform analysis on open/close based on date, etc..
 
+# There are several ways to iterate through rows within Pandas and Numpy.
+# There are multiple comparisons online on how to iterate through numbers.  Ultimately, using Pandas and Numpy
+# vectorization as discussed above is going to be faster.  However for the purposes of this section, and simplifying
+# we will just discuss two options:
+# 1. The standard built in Pandas Loop, iterrows() and 2. itertuples
+# The reason you would use iterrows is because it's faster, howeer itertuples preserves datatypes.
+# That being said, not using vectorization defeats the purpose of using Pandas (as it also defeats the purpose of Matlab).
+# See section 3.2 for more on vectorization.
 
-for index, row in df.iterrows():
+# for the column and row in the DataFrame, you can index the column for a particular row in question
+for i, row in df.iterrows():
+    print(row["col1"],row["col2"])
 
-    # do some logic here
-#!/usr/bin/env python
+# that should print out each column sequentially by row in order.  You can operate on the rows as follows:
+
+for i, row in df.iterrows():
+    w = row["col"]+2

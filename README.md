@@ -1,4 +1,9 @@
 # matlab-python
+
+New!  My Open Source Google Colab Notebooks on this topic:
+
+* [Vectorization](https://drive.google.com/drive/folders/1QFE09a63zwTBJR_60icKR_2DomnX4DFB?usp=sharing)
+
 Converting various common Matlab statistical and machine learning tools into Python.
 
 - [Motivation and Background](#motivation-and-background)
