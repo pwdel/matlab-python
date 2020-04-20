@@ -2,6 +2,7 @@
 
 import time
 
+# You can speed test by creating a formula for it and using the time module
 def speed_test(func):
     def wrapper(*args, **kwargs):
         t1 = time.time()

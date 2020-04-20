@@ -1,1 +1,3 @@
+% tic toc
+
 time()
