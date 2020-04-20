@@ -1,10 +1,11 @@
-
-
 # https://docs.scipy.org/doc/numpy/reference/generated/numpy.vectorize.html
 # tutorial on vectorization for Performance
 # https://hackernoon.com/speeding-up-your-code-2-vectorizing-the-loops-with-numpy-e380e939bed3
+# Intersting Article:
+# https://towardsdatascience.com/how-to-make-your-pandas-loop-71-803-times-faster-805030df4f06
 
 import numpy as np
+import pandas as pd
 
 # Create an identiy Matrix
 imatrix = np.eye(3)
