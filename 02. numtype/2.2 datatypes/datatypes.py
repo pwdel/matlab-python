@@ -4,7 +4,7 @@ Looking at an overview of the data types within Matlab, we have roughly the foll
 
 matlab table -> python pandas library tables
 
-matlab array -> python numpy array
+matlab array -> python numpy array (ndarray)
 
 matlab cell array -> python list
 

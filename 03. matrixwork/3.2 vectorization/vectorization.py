@@ -7,18 +7,13 @@
 import numpy as np
 import pandas as pd
 
-# Create an identiy Matrix
-imatrix = np.eye(3)
 
+# For a more detailed dive into Vectorization for Python, check out my Google Colab Notebook on Vectorization:
+# https://drive.google.com/drive/folders/1QFE09a63zwTBJR_60icKR_2DomnX4DFB
 
-# https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
-N = 5 # number of zeros in array
-zerosarray = np.array(np.zeros(N))
-
-# https://docs.scipy.org/doc/numpy/reference/generated/numpy.append.html
-# Numpy Append
-
-# Iterating over Arrays
-# https://docs.scipy.org/doc/numpy/reference/arrays.nditer.html
-
-# Create
+# As a part of vectorization, don't forget about pre-allocation.
+# there are many ways to pre-allocate arrays in Python, the lowest mempory appears to be, np.empty
+# Creating a 2D Array Up Front (Pre-Allocation)
+huge_list = [0,1,2,3,4,5,6,7,8,9]
+row_length = 1
+my_array = np.empty([len(huge_list), row_length])

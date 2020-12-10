@@ -83,3 +83,11 @@ A[0:Nkeep,0:Nkeep] = En # put micromatrix back into
 
 # Dynamicly Grow a Matrix as Data is Generated or Read
 # .append method
+
+# Creating a 2D Array Up Front (Pre-Allocation)
+huge_list = [0,1,2,3,4,5,6,7,8,9]
+row_length = 1
+my_array = np.empty([len(huge_list), row_length])
+# Note - empty might be martianally faster than zeros, you are pre-allocating an array
+for i, x in enumerate(huge_list):
+    my_array[i] = create_row(x)
