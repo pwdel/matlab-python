@@ -358,9 +358,19 @@ Preprocessing Tools are organized by folders in this Repo.  We are basically jus
 
 #### Generating data in the form of random numbers to play around with, putting them into variables.
 
+* 1.1.1 "generate" shows how to generate random numbers, between 1 and 100.
+  * Completed for Python
+  * Completed for MATLAB
+* 1.1.2 "writecsv" shows how to write this data into a CSV file.
+  * Completed for Python
+
 ### 01.2 Reading Data
 
 #### Reading data from files such as a CSV file
+
+* 1.2.1 "readcsv" shows how to read from a csv file, then put on a scatter plot
+  * Completed for Python
+  * Completed for MATLAB
 
 ### 02 Numeric Types
 
@@ -396,7 +406,11 @@ Structs and Cells take a bit more coding and thinking to work with, but not a wh
 
 ### 08 Tables
 
+Not Done
+
 ### 09 Cells
+
+Not Done
 
 ### 10 Control Statements
 
@@ -406,25 +420,45 @@ Structs and Cells take a bit more coding and thinking to work with, but not a wh
 
 ### 11 Set Operations
 
+Not Done
+
 ### 12 Casting
+
+Not Done
 
 ### 13 Strings
 
+Not Done
+
 ### 14 Operators
 
-### 15 Functions
+Not Done
+
+### 15 Empty
 
 ### 16 Lambda
 
+Not Done
+
 ### 17 Inheritance
+
+Not Done
 
 ### 18 Scope
 
+Not Done
+
 ### 19 Modules
+
+Not Done
 
 ### 20 Dates
 
+Not Done
+
 ### 30 Containers
+
+Not Done
 
 ### 31 Machine Learning Intro
 
@@ -447,9 +481,13 @@ Loss functions should not be blindly adopted for all applications.
 
 ### 32 Basic Stats
 
+Not Done
+
 # Regression Using Parametric Modeling
 
 
 # Classification Using Parametric Modeling
+
 # K-Nearest Neighbor Regression
+
 # Piecewise Linear Regression

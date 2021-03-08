@@ -15,6 +15,19 @@ for x in fruits:
 # What we did above is basically create a regular python array (not a numbered array) and printed the values in that array
 # However if we wanted to iterate through a ndarray (numbered array), analogous to a matrix, we would do the following:
 
+# Before moving on, we should look at a regular for loop for a fixed numeric range.
+# Whereas in Matlab, you iterate through a fixed numeric range by specifying the length of the range,
+# first, declare an array
+
+elements = []
+for i in elements[0:5]:
+    print("Element was: %d" % i)
+
+# The starting 0 can be eliminated with:
+for i in elements[:5]:
+    print("Element was: %d" % i)
+
+
 # np.arrange creates an array([0,1,2,3,4,5]) and .reshape(2,3) turns it into a 2x3 matrix
 # the type of this variable will be numpy.ndarray
 a = np.arange(6).reshape(2,3)
@@ -52,3 +65,15 @@ for i, row in df.iterrows():
 
 for i, row in df.iterrows():
     w = row["col"]+2
+
+# If you simply want to iterate down the column of a dataframe, keep in mind that the dataframe can be indexed as:
+# my_dataframe[column][row]
+# so as an example, you would use .count method which counts the number of rows
+# whereas .size counts total number of elements in a frame, and df.shape lists the rows and columns
+for i, row in df.count
+    print(df[0][i])
+
+# or...df.size[0] which gives you the rows from a tuple result, whereas 1 would give you the columns in a 2-dim dataframe
+for i, row in df.size[0]
+
+# ...to print out all of the rows for that column
